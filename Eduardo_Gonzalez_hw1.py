@@ -3,8 +3,21 @@
 # 2. Navigate to directory that this file is in
 # 3. Run this command in terminal: "python Eduardo_Gonzalez_hw1.py"
 
-def is_leap_year():
-    year = int(input("Enter a leap year: "))
+
+def validate_input():
+    while True:
+        try:
+            yearInput = int(input("Enter a year: "))
+        except ValueError:
+            print("That is not an integer! Please try again")
+            continue
+        else:
+            #validateRange(yearInput)
+            break
+
+    is_leap_year(yearInput)
+
+def is_leap_year(year):
 
     if(year % 4 == 0):
         if(year % 100 == 0):
@@ -17,4 +30,7 @@ def is_leap_year():
     else:
         print("{0} is not a leap year".format(year))
 
-is_leap_year()
+validate_input()
+
+
+
